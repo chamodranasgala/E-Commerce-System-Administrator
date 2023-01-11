@@ -18,7 +18,7 @@ app.use(manageCategory);
 app.use(manageProduct);
 
 const PORT = 8000;
-const DB_URL = 'mongodb+srv://test:test@testapp.i4jjk55.mongodb.net/testApp?retryWrites=true&w=majority';
+const DB_URL = 'mongodb+srv://app:app@app.q0ydbsd.mongodb.net/App?retryWrites=true&w=majority';
 
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,

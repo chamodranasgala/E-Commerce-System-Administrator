@@ -226,42 +226,6 @@ export default class MemberList extends Component {
                   </div>
 
                   <div className='form-group' style={{ marginBottom: '15px' }}>
-                    <label style={{ marginBottom: '5px' }}>Brand</label>
-                    <input type='text' className='form-control' name='memberName' placeholder='Enter Brand' value={this.state.memberName} onChange={this.handleInputChange}></input>
-
-                    <div style={{ fontSize: 12, color: 'red' }}>
-                      {this.state.memberNameError}
-                    </div>
-                  </div>
-
-                  <div className='form-group' style={{ marginBottom: '15px' }}>
-                    <label style={{ marginBottom: '5px' }}>Price</label>
-                    <input type='text' className='form-control' name='memberName' placeholder='Enter Price' value={this.state.memberName} onChange={this.handleInputChange}></input>
-
-                    <div style={{ fontSize: 12, color: 'red' }}>
-                      {this.state.memberNameError}
-                    </div>
-                  </div>
-
-                  <div className='form-group' style={{ marginBottom: '15px' }}>
-                    <label style={{ marginBottom: '5px' }}>Quantity</label>
-                    <input type='text' className='form-control' name='memberName' placeholder='Enter Quantity' value={this.state.memberName} onChange={this.handleInputChange}></input>
-
-                    <div style={{ fontSize: 12, color: 'red' }}>
-                      {this.state.memberNameError}
-                    </div>
-                  </div>
-
-                  <div className='form-group' style={{ marginBottom: '15px' }}>
-                    <label style={{ marginBottom: '5px' }}>Availability</label>
-                    <input type='text' className='form-control' name='memberName' placeholder='Select Availability' value={this.state.memberName} onChange={this.handleInputChange}></input>
-
-                    <div style={{ fontSize: 12, color: 'red' }}>
-                      {this.state.memberNameError}
-                    </div>
-                  </div>
-
-                  <div className='form-group' style={{ marginBottom: '15px' }}>
                     <label style={{ marginBottom: '5px' }}>Upload Images</label>
                     <input type='text' className='form-control' name='memberName' placeholder='Enter Name' value={this.state.memberName} onChange={this.handleInputChange}></input>
 
@@ -290,11 +254,8 @@ export default class MemberList extends Component {
             <tr>
               <th scope='col'>Product Image</th>
               <th scope='col'>Product Name</th>
-              <th scope='col'>Category</th>
-              <th scope='col'>Brand</th>
-              <th scope='col'>Price</th>
-              <th scope='col'>Qty</th>
-              <th scope='col'>Availability</th>
+              <th scope='col'>Main Category</th>
+              <th scope='col'>Subcategory</th>
               <th scope='col'>Action</th>
             </tr>
           </thead>

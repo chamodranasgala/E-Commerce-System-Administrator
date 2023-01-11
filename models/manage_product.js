@@ -1,8 +1,18 @@
 const mongoose = require('mongoose');
 
-const workoutplanSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
+    
+    productName: {
+        type: String,
+        required: true
+    },
 
-    planName: {
+    category: {
+        type: String,
+        required: true
+    },
+
+    brand: {
         type: String,
         required: true
     },
@@ -12,11 +22,15 @@ const workoutplanSchema = new mongoose.Schema({
         required: true
     },
 
-    duration: {
+    qty: {
+        type: String,
+        required: true
+    },
+
+    availability: {
         type: String,
         required: true
     }
-
 });
 
-module.exports = mongoose.model('WorkoutPlans', workoutplanSchema);
+module.exports = mongoose.model('Products', productSchema);

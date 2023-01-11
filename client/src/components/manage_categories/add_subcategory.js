@@ -233,7 +233,6 @@ export default class MemberList extends Component {
             <tr>
               <th scope='col'>Main Category</th>
               <th scope='col'>Subcategory</th>
-              <th scope='col'>Date</th>
               <th scope='col'>Action</th>
             </tr>
           </thead>

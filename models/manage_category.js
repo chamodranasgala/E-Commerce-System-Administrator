@@ -1,52 +1,21 @@
 const mongoose = require('mongoose');
 
-const memberSchema = new mongoose.Schema({
+const categorySchema = new mongoose.Schema({
 
-    memberName: {
+    mainCategory: {
         type: String,
         required: true
     },
 
-    address: {
+    subcategory: {
         type: String,
         required: true
     },
 
-    email: {
-        type: String,
-        required: true
-    },
-
-    phoneNumber: {
-        type: String,
-        required: true
-    },
-
-    gender: {
-        type: String,
-        required: true
-    },
-
-    weight: {
-        type: String,
-        required: true
-    },
-
-    height: {
-        type: String,
-        required: true
-    },
-
-    joiningDate: {
-        type: String,
-        required: true
-    },
-
-    otherDetails: {
+    date: {
         type: String,
         required: true
     }
-
 });
 
-module.exports = mongoose.model('Members', memberSchema);
+module.exports = mongoose.model('Categories', categorySchema);

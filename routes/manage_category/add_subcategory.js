@@ -1,27 +1,27 @@
 const express = require('express');
-const Members = require('../models/members');
+const Categories = require('../../models/manage_category');
 
 const router = express.Router();
 
-//Add Members
-router.post('/member/save', (req, res) => {
-    let newMember = new Members(req.body);
+//Add Category
+router.post('/subcategory/save', (req, res) => {
+    let newCategory = new Categories(req.body);
 
-    newMember.save((err) => {
+    newCategory.save((err) => {
         if (err) {
             return res.status(400).json({
                 error: err
             });
         }
         return res.status(200).json({
-            success: "Member added successfully"
+            success: "Added Successfully."
         });
     });
 });
 
-//Member List
-router.get('/members', (req, res) => {
-    Members.find().exec((err, members) => {
+//All Categories
+router.get('/allsubcategories', (req, res) => {
+    Categories.find().exec((err, categories) => {
         if (err) {
             return res.status(400).json({
                 error: err
@@ -29,53 +29,53 @@ router.get('/members', (req, res) => {
         }
         return res.status(200).json({
             success: true,
-            existingMembers: members
+            existingCategories: categories
         });
     });
 });
 
-//Get Specific Member
-router.get('/member/:id', (req, res) => {
-    let memberId = req.params.id;
-    Members.findById(memberId, (err, member) => {
+//Get Specific Category
+router.get('/subcategory/:sn', (req, res) => {
+    let categorySN = req.params.sn;
+    Categories.findBySN(categorySN, (err, category) => {
         if (err) {
             return res.status(400).json({ success: false, err });
         }
         return res.status(200).json({
             success: true,
-            member
+            category
         });
     });
 });
 
-//Update Member
-router.put('/member/update/:id', (req, res) => {
-    Members.findByIdAndUpdate(
-        req.params.id,
+//Update Category
+router.put('/subcategory/update/:sn', (req, res) => {
+    Categories.findBySNAndUpdate(
+        req.params.sn,
         {
             $set: req.body
         },
-        (err, member) => {
+        (err, category) => {
             if (err) {
                 return res.status(400).json({ error: err });
             }
 
             return res.status(200).json({
-                success: "Update Successfully"
+                success: "Updated Successfully."
             });
         }
     );
 });
 
-//Delete Member
-router.delete('/member/delete/:id', (req, res) => {
-    Members.findByIdAndRemove(req.params.id).exec((err, deletedmember) => {
+//Delete Category
+router.delete('/subcategory/delete/:sn', (req, res) => {
+    Categories.findBySNAndRemove(req.params.sn).exec((err, deletedcategory) => {
         if (err) return res.status(400).json({
             message: "Delete unsuccessful", err
         });
 
         return res.json({
-            message: "Delete Successfull", deletedmember
+            message: "Deleted Successfully.", deletedcategory
         });
     });
 });

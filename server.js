@@ -6,16 +6,16 @@ const cors = require('cors');
 const app = express();
 
 //import routes
-const memberRoutes = require('./routes/members');
-const workoutplanRoutes = require('./routes/workoutplan');
+const manageCategory = require('./routes/manage_category');
+const manageProduct = require('./routes/manage_product');
 
 //app middleware
 app.use(bodyParser.json());
 app.use(cors());
 
 //route middleware
-app.use(memberRoutes);
-app.use(workoutplanRoutes);
+app.use(manageCategory);
+app.use(manageProduct);
 
 const PORT = 8000;
 const DB_URL = 'mongodb+srv://test:test@testapp.i4jjk55.mongodb.net/testApp?retryWrites=true&w=majority';

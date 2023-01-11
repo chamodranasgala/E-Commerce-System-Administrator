@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-
 export default class MemberList extends Component {
 
   constructor(props) {
@@ -180,54 +179,12 @@ export default class MemberList extends Component {
         <br></br>
 
 
-        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2" style={{ marginLeft: '250px' }}>
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{ marginLeft: '250px' }}>
         Add Subcategory
         </button>
 
-  
 
-        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-
-                <form className='needs-validation' noValidate>
-
-                  <div className='form-group' style={{ marginBottom: '15px' }}>
-                    <label style={{ marginBottom: '5px' }}>Category</label>
-                    <input type='text' className='form-control' name='memberName' placeholder='Enter Category' value={this.state.memberName} onChange={this.handleInputChange}></input>
-
-                    <div style={{ fontSize: 12, color: 'red' }}>
-                      {this.state.memberNameError}
-                    </div>
-                  </div>
-
-                  <div className='form-group' style={{ marginBottom: '15px' }}>
-                    <label style={{ marginBottom: '5px' }}>Date</label>
-                    <input type='text' className='form-control' name='address' placeholder='Select Date' value={this.state.address} onChange={this.handleInputChange}></input>
-
-                    <div style={{ fontSize: 12, color: 'red' }}>
-                      {this.state.addressError}
-                    </div>
-                  </div>
-
-                </form>
-              </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-success" onClick={this.onSubmit}>Add</button>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -268,45 +225,7 @@ export default class MemberList extends Component {
           </div>
         </div>
 
-        {this.state.members.map((members, index) => (
-          <div class="card text-center" style={{ margin: '35px 250px 0px 250px' }}>
-            <div class="card-header" key={index}>
-              Member {index + 1}
-            </div>
-            <div class="card-body">
-
-              <a href={`/postmember/${members._id}`} style={{ textDecoration: 'none' }}><h5 class="card-title">{members.memberName}</h5></a>
-
-              <p class="card-text">
-                {members.email}
-                <br /><br />
-
-                Weight:   {members.weight}kg
-                <br />
-
-                Height:   {members.height}cm
-              </p>
-
-              <a className='btn btn-warning' href={`/editmember/${members._id}`}>
-                <i className='fas fa-edit'></i>&nbsp;Edit
-              </a>
-              &nbsp;&nbsp;
-
-              <a className='btn btn-danger' onClick={() => this.onDelete(members._id)}>
-                <i className='far fa-trash-alt'></i>&nbsp;Delete
-              </a>
-              &nbsp;&nbsp;
-
-              <button className="btn btn-info" onClick={() => this.createPDF(members.memberName, members.address, members.email, members.phoneNumber, members.gender, members.weight, members.height, members.joiningDate, members.otherDetails)}>
-                <i class="fa-solid fa-file-pdf"></i>&nbsp;Get Report
-              </button>
-
-            </div>
-            <div class="card-footer text-muted">
-              Joined Date:  {members.joiningDate}
-            </div>
-          </div>
-        ))}
+        
 
         <table className='table table-hover' style={{ marginTop: '40px' }}>
 

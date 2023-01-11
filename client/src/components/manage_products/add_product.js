@@ -282,46 +282,7 @@ export default class MemberList extends Component {
             </div>
           </div>
         </div>
-
-        {this.state.members.map((members, index) => (
-          <div class="card text-center" style={{ margin: '35px 250px 0px 250px' }}>
-            <div class="card-header" key={index}>
-              Member {index + 1}
-            </div>
-            <div class="card-body">
-
-              <a href={`/postmember/${members._id}`} style={{ textDecoration: 'none' }}><h5 class="card-title">{members.memberName}</h5></a>
-
-              <p class="card-text">
-                {members.email}
-                <br /><br />
-
-                Weight:   {members.weight}kg
-                <br />
-
-                Height:   {members.height}cm
-              </p>
-
-              <a className='btn btn-warning' href={`/editmember/${members._id}`}>
-                <i className='fas fa-edit'></i>&nbsp;Edit
-              </a>
-              &nbsp;&nbsp;
-
-              <a className='btn btn-danger' onClick={() => this.onDelete(members._id)}>
-                <i className='far fa-trash-alt'></i>&nbsp;Delete
-              </a>
-              &nbsp;&nbsp;
-
-              <button className="btn btn-info" onClick={() => this.createPDF(members.memberName, members.address, members.email, members.phoneNumber, members.gender, members.weight, members.height, members.joiningDate, members.otherDetails)}>
-                <i class="fa-solid fa-file-pdf"></i>&nbsp;Get Report
-              </button>
-
-            </div>
-            <div class="card-footer text-muted">
-              Joined Date:  {members.joiningDate}
-            </div>
-          </div>
-        ))}
+        
 
         <table className='table table-hover' style={{ marginTop: '40px' }}>
 

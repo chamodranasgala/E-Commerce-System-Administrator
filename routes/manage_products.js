@@ -1,13 +1,13 @@
 const express = require('express');
-const Categories = require('../../models/manage_category');
+const Products = require('../models/manage_product');
 
 const router = express.Router();
 
-//Add Subcategory
-router.post('/subcategory/save', (req, res) => {
-    let newCategory = new Categories(req.body);
+//add product
+router.post('/addproduct/save', (req, res) => {
+    let newProduct = new Products(req.body);
 
-    newCategory.save((err) => {
+    newProduct.save((err) => {
         if (err) {
             return res.status(400).json({
                 error: err
@@ -19,9 +19,9 @@ router.post('/subcategory/save', (req, res) => {
     });
 });
 
-//All Subcategories
-router.get('/allsubcategories', (req, res) => {
-    Categories.find().exec((err, subcategories) => {
+//get products
+router.get('/products', (req, res) => {
+    Products.find().exec((err, products) => {
         if (err) {
             return res.status(400).json({
                 error: err
@@ -29,33 +29,33 @@ router.get('/allsubcategories', (req, res) => {
         }
         return res.status(200).json({
             success: true,
-            existingSubcategories: subcategories
+            existingProducts: products
         });
     });
 });
 
-//Get Specific Subcategory
-router.get('/subcategory/:sn', (req, res) => {
-    let categorySN = req.params.sn;
-    Categories.findBySN(categorySN, (err, subcategory) => {
+//get specific product
+router.get('/product/:sn', (req, res) => {
+    let productSN = req.params.sn;
+    Products.findBySN(productSN, (err, product) => {
         if (err) {
             return res.status(400).json({ success: false, err });
         }
         return res.status(200).json({
             success: true,
-            subcategory
+            product
         });
     });
 });
 
-//Update Subcategory
-router.put('/subcategory/update/:sn', (req, res) => {
-    Categories.findBySNAndUpdate(
+//Update product
+router.put('/product/update/:sn', (req, res) => {
+    Products.findBySNAndUpdate(
         req.params.sn,
         {
             $set: req.body
         },
-        (err, subcategory) => {
+        (err, product) => {
             if (err) {
                 return res.status(400).json({ error: err });
             }
@@ -67,15 +67,15 @@ router.put('/subcategory/update/:sn', (req, res) => {
     );
 });
 
-//Delete Subcategory
-router.delete('/subcategory/delete/:sn', (req, res) => {
-    Categories.findBySNAndRemove(req.params.sn).exec((err, deletedsubcategory) => {
+//Delete product
+router.delete('/product/delete/:sn', (req, res) => {
+    Products.findBySNAndRemove(req.params.sn).exec((err, deletedproduct) => {
         if (err) return res.status(400).json({
-            message: "Delete unsuccessful", err
+            message: "Deleted Unsuccessful.", err
         });
 
         return res.json({
-            message: "Deleted Successfully.", deletedsubcategory
+            message: "Deleted Successfully.", deletedproduct
         });
     });
 });

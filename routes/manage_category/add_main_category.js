@@ -19,9 +19,9 @@ router.post('/maincategory/save', (req, res) => {
     });
 });
 
-//All Categories
+//All Main Categories
 router.get('/allmaincategories', (req, res) => {
-    Categories.find().exec((err, categories) => {
+    Categories.find().exec((err, maincategories) => {
         if (err) {
             return res.status(400).json({
                 error: err
@@ -29,33 +29,33 @@ router.get('/allmaincategories', (req, res) => {
         }
         return res.status(200).json({
             success: true,
-            existingCategories: categories
+            existingCategories: maincategories
         });
     });
 });
 
-//Get Specific Category
+//Get Specific Main Category
 router.get('/maincategory/:sn', (req, res) => {
     let categorySN = req.params.sn;
-    Categories.findBySN(categorySN, (err, category) => {
+    Categories.findBySN(categorySN, (err, maincategory) => {
         if (err) {
             return res.status(400).json({ success: false, err });
         }
         return res.status(200).json({
             success: true,
-            category
+            maincategory
         });
     });
 });
 
-//Update Category
+//Update Main Category
 router.put('/maincategory/update/:sn', (req, res) => {
     Categories.findBySNAndUpdate(
         req.params.sn,
         {
             $set: req.body
         },
-        (err, category) => {
+        (err, maincategory) => {
             if (err) {
                 return res.status(400).json({ error: err });
             }
@@ -67,15 +67,15 @@ router.put('/maincategory/update/:sn', (req, res) => {
     );
 });
 
-//Delete Category
+//Delete Main Category
 router.delete('/maincategory/delete/:sn', (req, res) => {
-    Categories.findBySNAndRemove(req.params.sn).exec((err, deletedcategory) => {
+    Categories.findBySNAndRemove(req.params.sn).exec((err, deletedmaincategory) => {
         if (err) return res.status(400).json({
-            message: "Delete unsuccessful", err
+            message: "Delete Unsuccessful", err
         });
 
         return res.json({
-            message: "Deleted Successfully.", deletedcategory
+            message: "Deleted Successfully.", deletedmaincategory
         });
     });
 });

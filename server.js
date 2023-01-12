@@ -6,22 +6,18 @@ const cors = require('cors');
 const app = express();
 
 //import routes
-const mainCategory = require('./routes/main_category');
-const subcategory = require('./routes/subcategory');
-const allCategories = require('./routes/all_categories');
-
-const manageProduct = require('./routes/products');
+const mainCategoryRoutes = require('./routes/main_category');
+const subcategoryRoutes = require('./routes/subcategory');
+const manageProductRoutes = require('./routes/products');
 
 //app middleware
 app.use(bodyParser.json());
 app.use(cors());
 
 //route middleware
-app.use(mainCategory);
-app.use(subcategory);
-app.use(allCategories);
-
-app.use(manageProduct);
+app.use(mainCategoryRoutes);
+app.use(subcategoryRoutes);
+app.use(manageProductRoutes);
 
 
 const PORT = 8000;

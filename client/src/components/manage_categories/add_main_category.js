@@ -151,19 +151,12 @@ export default class add_main_category extends Component {
 
           <thead>
             <tr>
-              <th scope='col'>#</th>
               <th scope='col'>Main Category</th>
               <th scope='col'>Action</th>
             </tr>
           </thead>
 
           <tbody>
-            {this.state.posts.map((posts,index) =>(
-              <tr>
-                <th></th>
-              </tr>
-
-            ))}
 
           </tbody>
           

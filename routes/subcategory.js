@@ -1,5 +1,5 @@
 const express = require('express');
-const Categories = require('../models/manage_category');
+const Categories = require('../models/subcategory');
 
 const router = express.Router();
 
@@ -35,9 +35,9 @@ router.get('/allsubcategories', (req, res) => {
 });
 
 //Get Specific Subcategory
-router.get('/subcategory/:sn', (req, res) => {
-    let categorySN = req.params.sn;
-    Categories.findBySN(categorySN, (err, subcategory) => {
+router.get('/subcategory/:id', (req, res) => {
+    let categoryId = req.params.id;
+    Categories.findById(categoryId, (err, subcategory) => {
         if (err) {
             return res.status(400).json({ success: false, err });
         }
@@ -49,9 +49,9 @@ router.get('/subcategory/:sn', (req, res) => {
 });
 
 //Update Subcategory
-router.put('/subcategory/update/:sn', (req, res) => {
-    Categories.findBySNAndUpdate(
-        req.params.sn,
+router.put('/subcategory/update/:id', (req, res) => {
+    Categories.findByIdAndUpdate(
+        req.params.id,
         {
             $set: req.body
         },
@@ -68,14 +68,14 @@ router.put('/subcategory/update/:sn', (req, res) => {
 });
 
 //Delete Subcategory
-router.delete('/subcategory/delete/:sn', (req, res) => {
-    Categories.findBySNAndRemove(req.params.sn).exec((err, deletedsubcategory) => {
+router.delete('/subcategory/delete/:id', (req, res) => {
+    Categories.findByIdAndRemove(req.params.sn).exec((err, deletesubcategory) => {
         if (err) return res.status(400).json({
             message: "Delete unsuccessful", err
         });
 
         return res.json({
-            message: "Deleted Successfully.", deletedsubcategory
+            message: "Deleted Successfully.", deletesubcategory
         });
     });
 });

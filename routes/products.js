@@ -1,5 +1,5 @@
 const express = require('express');
-const Products = require('../models/manage_product');
+const Products = require('../models/product');
 
 const router = express.Router();
 
@@ -35,9 +35,9 @@ router.get('/products', (req, res) => {
 });
 
 //get specific product
-router.get('/product/:sn', (req, res) => {
-    let productSN = req.params.sn;
-    Products.findBySN(productSN, (err, product) => {
+router.get('/product/:id', (req, res) => {
+    let productId = req.params.id;
+    Products.findById(productId, (err, product) => {
         if (err) {
             return res.status(400).json({ success: false, err });
         }
@@ -49,9 +49,9 @@ router.get('/product/:sn', (req, res) => {
 });
 
 //Update product
-router.put('/product/update/:sn', (req, res) => {
-    Products.findBySNAndUpdate(
-        req.params.sn,
+router.put('/product/update/:id', (req, res) => {
+    Products.findByIdAndUpdate(
+        req.params.id,
         {
             $set: req.body
         },
@@ -68,8 +68,8 @@ router.put('/product/update/:sn', (req, res) => {
 });
 
 //Delete product
-router.delete('/product/delete/:sn', (req, res) => {
-    Products.findBySNAndRemove(req.params.sn).exec((err, deletedproduct) => {
+router.delete('/product/delete/:id', (req, res) => {
+    Products.findByIdAndRemove(req.params.id).exec((err, deletedproduct) => {
         if (err) return res.status(400).json({
             message: "Deleted Unsuccessful.", err
         });

@@ -10,11 +10,6 @@ const categorySchema = new mongoose.Schema({
     subcategory: {
         type: String,
         required: true
-    },
-
-    date: {
-        type: String,
-        required: true
     }
 });
 

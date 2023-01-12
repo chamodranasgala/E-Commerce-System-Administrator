@@ -22,17 +22,17 @@ export default class navbar extends Component {
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage Category</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="/all_categories">All Categories</a>
-                  <a class="dropdown-item" href="/add_category">Add Category</a>
-                  <a class="dropdown-item" href="/add_subcategory">Add Subcategory</a>
+                  <a class="dropdown-item" href="/allcategories">All Categories</a>
+                  <a class="dropdown-item" href="/addmaincategory">Add Main Category</a>
+                  <a class="dropdown-item" href="/addsubcategory">Add Subcategory</a>
                 </div>
               </li>
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage Product</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="/all_products">All Products</a>
-                  <a class="dropdown-item" href="/add_product">Add Product</a>
+                  <a class="dropdown-item" href="/allproducts">All Products</a>
+                  <a class="dropdown-item" href="/addproduct">Add Product</a>
                 </div>
               </li>
               

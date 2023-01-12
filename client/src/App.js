@@ -6,14 +6,13 @@ import AdminHome from "./components/admin_home";
 import Navbar from './components/navbar';
 
 import AllCategories from './components/manage_categories/all_categories';
-import AddCategory from './components/manage_categories/add_category';
+import AddMainCategory from './components/manage_categories/add_main_category';
 import AddSubCategory from './components/manage_categories/add_subcategory';
-import EditMember from './components/manage_categories/EditMember';
-import PostMember from './components/manage_categories/PostMember';
+
 
 import AllProducts from './components/manage_products/all_products';
 import AddProduct from './components/manage_products/add_product';
-import EditPlan from './components/manage_products/EditPlan';
+
 
 export default class App extends Component {
   render() {
@@ -22,29 +21,26 @@ export default class App extends Component {
 
         <Route path="/" exact component={AdminHome}></Route>
 
-        <Route path="/all_categories" component={Navbar}></Route>
-        <Route path="/all_categories" component={AllCategories}></Route>
+        <Route path="/allcategories" component={Navbar}></Route>
+        <Route path="/allcategories" component={AllCategories}></Route>
 
-        <Route path="/add_category" component={Navbar}></Route>
-        <Route path="/add_category" component={AddCategory}></Route>
+        <Route path="/addmaincategory" component={Navbar}></Route>
+        <Route path="/addmaincategory" component={AddMainCategory}></Route>
 
-        <Route path="/add_subcategory" component={Navbar}></Route>
-        <Route path="/add_subcategory" component={AddSubCategory}></Route>
+        <Route path="/addsubcategory" component={Navbar}></Route>
+        <Route path="/addsubcategory" component={AddSubCategory}></Route>
 
-        <Route path="/editmember" component={Navbar}></Route>
-        <Route path="/editmember/:id" component={EditMember}></Route>
 
-        <Route path="/postmember" component={Navbar}></Route>
-        <Route path="/postmember/:id" component={PostMember}></Route>
 
-        <Route path="/all_products" component={Navbar}></Route>
-        <Route path="/all_products" component={AllProducts}></Route>
 
-        <Route path="/add_product" component={Navbar}></Route>
-        <Route path="/add_product" component={AddProduct}></Route>
 
-        <Route path="/editworkoutplan" component={Navbar}></Route>
-        <Route path="/editworkoutplan/:id" component={EditPlan}></Route>
+        <Route path="/allproducts" component={Navbar}></Route>
+        <Route path="/allproducts" component={AllProducts}></Route>
+
+        <Route path="/addproduct" component={Navbar}></Route>
+        <Route path="/addproduct" component={AddProduct}></Route>
+
+
 
       </BrowserRouter>
     )

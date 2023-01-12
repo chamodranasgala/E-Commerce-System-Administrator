@@ -1,25 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class MemberList extends Component {
+export default class add_subcategory extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      memberName: "",
-      address: "",
-      email: "",
-      phoneNumber: "",
-      gender: "",
-      weight: "",
-      height: "",
-      joiningDate: "",
-      otherDetails: ""
+      subcategory: ""
     }
 
     this.state = {
-      members: []
+      subcat: []
     };
   }
 
@@ -35,38 +27,16 @@ export default class MemberList extends Component {
   // Validation
   validate = () => {
 
-    let memberNameError = "";
-    let addressError = "";
-    let emailError = "";
-    let phoneNumberError = "";
-    let genderError = "";
-    let weightError = "";
-    let heightError = "";
+    let subcategoryError = "";
 
-    if (!this.state.memberName) {
-      memberNameError = 'This field is required!';
-    }
-    if (!this.state.address) {
-      addressError = 'This field is required!';
-    }
-    if (!this.state.email) {
-      emailError = 'This field is required!';
-    }
-    if (!this.state.phoneNumber) {
-      phoneNumberError = 'This field is required!';
-    }
-    if (!this.state.gender) {
-      genderError = 'This field is required!';
-    }
-    if (!this.state.weight) {
-      weightError = 'This field is required!';
-    }
-    if (!this.state.height) {
-      heightError = 'This field is required!';
+
+    if (!this.state.subcategory) {
+      subcategoryError = 'This field is required!';
     }
 
-    if (memberNameError || addressError || emailError || phoneNumberError || genderError || weightError || heightError) {
-      this.setState({ memberNameError, addressError, emailError, phoneNumberError, genderError, weightError, heightError });
+
+    if (subcategoryError) {
+      this.setState({ subcategoryError});
       return false;
     }
 
@@ -180,9 +150,8 @@ export default class MemberList extends Component {
 
 
         <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{ marginLeft: '250px' }}>
-        Add Subcategory
+          Add Subcategory
         </button>
-
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -241,9 +210,7 @@ export default class MemberList extends Component {
           </tbody>
           
         </table>
-
       </div>
-      
     )
   }
 }

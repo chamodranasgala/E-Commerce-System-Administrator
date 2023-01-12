@@ -19,10 +19,13 @@ function Adminhome() {
                 <br />
                 <br />
                 <br />
-                <a role="button" className="button-87" href="/all_categories">Manage Categories</a>
+
+                <a role="button" className="button-87" href="/allcategories">Manage Categories</a>
                 <br />
-                <a role="button" className="button-88" href="/all_products">Manage Products</a>
+                <a role="button" className="button-88" href="/allproducts">Manage Products</a>
                 <br />
+
+                
             </div>
         </div>
 

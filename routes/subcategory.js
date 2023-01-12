@@ -1,10 +1,10 @@
 const express = require('express');
-const Categories = require('../../models/manage_category');
+const Categories = require('../models/manage_category');
 
 const router = express.Router();
 
-//Add Category
-router.post('/maincategory/save', (req, res) => {
+//Add Subcategory
+router.post('/subcategory/save', (req, res) => {
     let newCategory = new Categories(req.body);
 
     newCategory.save((err) => {
@@ -19,9 +19,9 @@ router.post('/maincategory/save', (req, res) => {
     });
 });
 
-//All Main Categories
-router.get('/allmaincategories', (req, res) => {
-    Categories.find().exec((err, maincategories) => {
+//All Subcategories
+router.get('/allsubcategories', (req, res) => {
+    Categories.find().exec((err, subcategories) => {
         if (err) {
             return res.status(400).json({
                 error: err
@@ -29,33 +29,33 @@ router.get('/allmaincategories', (req, res) => {
         }
         return res.status(200).json({
             success: true,
-            existingCategories: maincategories
+            existingSubcategories: subcategories
         });
     });
 });
 
-//Get Specific Main Category
-router.get('/maincategory/:sn', (req, res) => {
+//Get Specific Subcategory
+router.get('/subcategory/:sn', (req, res) => {
     let categorySN = req.params.sn;
-    Categories.findBySN(categorySN, (err, maincategory) => {
+    Categories.findBySN(categorySN, (err, subcategory) => {
         if (err) {
             return res.status(400).json({ success: false, err });
         }
         return res.status(200).json({
             success: true,
-            maincategory
+            subcategory
         });
     });
 });
 
-//Update Main Category
-router.put('/maincategory/update/:sn', (req, res) => {
+//Update Subcategory
+router.put('/subcategory/update/:sn', (req, res) => {
     Categories.findBySNAndUpdate(
         req.params.sn,
         {
             $set: req.body
         },
-        (err, maincategory) => {
+        (err, subcategory) => {
             if (err) {
                 return res.status(400).json({ error: err });
             }
@@ -67,15 +67,15 @@ router.put('/maincategory/update/:sn', (req, res) => {
     );
 });
 
-//Delete Main Category
-router.delete('/maincategory/delete/:sn', (req, res) => {
-    Categories.findBySNAndRemove(req.params.sn).exec((err, deletedmaincategory) => {
+//Delete Subcategory
+router.delete('/subcategory/delete/:sn', (req, res) => {
+    Categories.findBySNAndRemove(req.params.sn).exec((err, deletedsubcategory) => {
         if (err) return res.status(400).json({
-            message: "Delete Unsuccessful", err
+            message: "Delete unsuccessful", err
         });
 
         return res.json({
-            message: "Deleted Successfully.", deletedmaincategory
+            message: "Deleted Successfully.", deletedsubcategory
         });
     });
 });
